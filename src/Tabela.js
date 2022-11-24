@@ -1,8 +1,16 @@
+import { useState } from "react";
+
+//Componente
 function Tabela({vetor, selecionar}){
+
+    //usestate
+    const [termo, setTermo] = useState('');
 
     //Retornar
     return(
-        <table className='table'>
+        <div>
+            <input type='text' onChange={e => setTermo(e.target.value)} placeholder='Informe o nome:' className='form-control pesquisa'/>
+            <table className='table'>
             <thead>
                 <tr>
                     <th>#</th>
@@ -14,7 +22,7 @@ function Tabela({vetor, selecionar}){
             </thead>
             <tbody>
                 {
-                    vetor.map((obj, indice) => (
+                    vetor.filter(obj => obj.nome.includes(termo)).map((obj, indice) => (
                         <tr key={indice}>
                             <td>{indice+1}</td>
                             <td>{obj.nome}</td>
@@ -26,6 +34,7 @@ function Tabela({vetor, selecionar}){
                 }
             </tbody>
         </table>
+        </div>
     )
 }
 

@@ -11,3 +11,8 @@ form input[type='button']{
   margin-right: 10px;
 
 }
+
+.pesquisa{
+  width: 25%;
+  margin: 5% auto;
+}
